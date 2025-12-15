@@ -68,6 +68,19 @@ Config files are stored in `~/.ctx/`:
 └── history/          # yanked prompt history
 ```
 
+## Troubleshooting
+
+### Checksum mismatch error
+
+If you get a security error about checksum mismatch (e.g., `SECURITY ERROR ... checksum mismatch`), clear the module cache and regenerate checksums:
+
+```bash
+go clean -modcache
+rm go.sum
+go mod tidy
+go build -o ctx .
+```
+
 ## License
 
 MIT
